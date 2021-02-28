@@ -3,5 +3,11 @@ from django.shortcuts import render
 
 
 # Create your views here.
+from django.template import loader
+
+
 def main_page(request):
-    return HttpResponse('Cars4Rent')
+    template = loader.get_template('main/index.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
