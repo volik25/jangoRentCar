@@ -18,6 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('apps.main.urls')),
-    path('cars/', include('apps.cars.urls')),
+    path('cars/', include(('apps.cars.urls', 'apps.cars'), namespace='cars')),
+    path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
 ]

@@ -7,7 +7,12 @@ class Car(models.Model):
     power = models.IntegerField('Мощность', null='false')
     price = models.IntegerField('Цена', null='false')
     description = models.TextField('Описание', null='true')
+    photo = models.ImageField(verbose_name='Изображения',
+                              upload_to='photos/%Y/%m/%d/', blank=True)
 
     class Meta:
         verbose_name = 'Автомобиль'
         verbose_name_plural = 'Автомобили'
+
+    def __str__(self):
+        return f"{self.id}: {self.manufacturer} {self.model}"
