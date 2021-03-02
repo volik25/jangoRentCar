@@ -7,3 +7,7 @@ class Car(models.Model):
     power = models.IntegerField('Мощность', null='false')
     price = models.IntegerField('Цена', null='false')
     description = models.TextField('Описание', null='true')
+
+    class Meta:
+        verbose_name = 'Автомобиль'
+        verbose_name_plural = 'Автомобили'
