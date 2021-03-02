@@ -7,6 +7,11 @@
     <title>{% block title %} Cars4Rent {% endblock %}</title>
   </head>
   <body>
+    <div class="container-fluid">
+        <a href="{% url 'index' %}">Главная</a>
+        <a href="{% url 'cars:list' %}">К автомоблям</a>
+        <a href="{% url 'admin:index' %}">Админка</a>
+    </div>
     <div class="container">
       <div class="row justify-content-center">
           {% block content %}

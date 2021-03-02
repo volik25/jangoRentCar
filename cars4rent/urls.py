@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from apps.main import views as main_views
+
 urlpatterns = [
-    path('', include('apps.main.urls')),
+    path('', main_views.start_app, name='index'),
     path('cars/', include(('apps.cars.urls', 'apps.cars'), namespace='cars')),
     path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
