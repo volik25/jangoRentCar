@@ -1,4 +1,6 @@
 {% extends 'app.html' %}
+{% load static %}
+{% block styles %} {% static 'car-styles.css' %} {% endblock %}
 {% block title %}Автомобили{% endblock %}
 {% block content %}
     {% if car_list %}
