@@ -1,5 +1,22 @@
 {% extends 'app.html' %}
 {% block title %} {{ user.last_name }} {{ user.first_name }} {% endblock %}
 {% block content %}
-    <a class="btn btn-primary" href="{% url 'user:logout' %}">Выйти</a>
+    <div class="d-flex flex-column">
+        <div class="d-flex">
+            <h2>Ваши данные</h2>
+            <a class="btn btn-primary" href="{% url 'user:logout' %}">Выйти</a>
+        </div>
+        <div>
+            {{ user.email }}
+        </div>
+        <div>
+            {{ user.username }}
+        </div>
+        <div>
+            {{ user.last_name }}
+        </div>
+        <div>
+            {{ user.first_name }}
+        </div>
+    </div>
 {% endblock %}

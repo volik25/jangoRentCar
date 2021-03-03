@@ -1,5 +1,9 @@
 from django.contrib.auth import logout
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views import generic
+
+from apps.user.forms import UserRegisterForm
 
 
 def profile(request):
@@ -13,8 +17,10 @@ def sign_in(request):
     return render(request, 'user/sign-in.html')
 
 
-def sign_up(request):
-    return render(request, 'user/sign-up.html')
+class SignUpView(generic.CreateView):
+    form_class = UserRegisterForm
+    success_url = reverse_lazy('user:sign-in')
+    template_name = 'user/sign-up.html'
 
 
 def log_out(request):

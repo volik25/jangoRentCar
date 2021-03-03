@@ -27,7 +27,11 @@
             <div class="personal-room">
                 <a href="{% url 'user:profile' %}">
                     {% if user.is_authenticated %}
-                        {{ user.last_name }} {{ user.first_name }}
+                        {% if user.last_name or user.first_name %}
+                            {{ user.last_name }} {{ user.first_name }}
+                        {% else %}
+                            {{ user.username }}
+                        {% endif %}
                     {% else %}
                         Личный кабинет
                     {% endif %}

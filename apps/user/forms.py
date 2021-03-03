@@ -5,9 +5,13 @@ from django.contrib.auth.models import User
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(label='Почта:', widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    username = forms.CharField(label='Имя пользователя:',
+                               widget=forms.TextInput(attrs={'class': 'form-control'}))
     first_name = forms.CharField(label='Фамилия:',
+                                 required=0,
                                  widget=forms.TextInput(attrs={'class': 'form-control'}))
     last_name = forms.CharField(label='Имя:',
+                                required=0,
                                 widget=forms.TextInput(attrs={'class': 'form-control'}))
     password1 = forms.CharField(label='Пароль:',
                                 widget=forms.PasswordInput(attrs={'class': 'form-control'}))
@@ -16,9 +20,8 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['email', 'first_name', 'last_name', 'password1', 'password2']
+        fields = ['email', 'first_name', 'last_name', 'username', 'password1', 'password2']
         widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
         }
