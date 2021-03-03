@@ -125,4 +125,3 @@ MEDIA_URL = '/media/'
 
 STATIC_ROOT = BASE_DIR.joinpath('static')
 STATIC_URL = '/static/'
-
