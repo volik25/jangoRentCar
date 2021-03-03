@@ -1,0 +1,19 @@
+{% extends 'app.html' %}
+{% block title %} Авторизация {% endblock %}
+{% load crispy_forms_filters %}
+{% block content %}
+    <h2>Вход</h2>
+    <form method="post">
+    {% csrf_token %}
+
+    <div>
+            {{ form.username|as_crispy_field }}
+        </div>
+
+        <div>
+            {{ form.password|as_crispy_field }}
+        </div>
+    <input type="hidden" name="next" value="{% url 'user:profile' %}">
+    <input type="submit" value="Войти" class="btn btn-success">
+    </form>
+{% endblock %}

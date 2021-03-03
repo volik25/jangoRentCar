@@ -1,0 +1,5 @@
+{% extends 'app.html' %}
+{% block title %} {{ user.last_name }} {{ user.first_name }} {% endblock %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'user:logout' %}">Выйти</a>
+{% endblock %}

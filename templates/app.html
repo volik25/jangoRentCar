@@ -11,19 +11,29 @@
   </head>
   <body>
     <div class="header">
-        <div></div>
+        <div class="admin-panel">
+            {% if user.is_staff %}
+            <a href="{% url 'admin:index' %}">Администрирование</a>
+            {% endif %}
+        </div>
         <div>
             <div class="menu-box">
                 <a href="{% url 'index' %}">Главная</a>
                 <a href="{% url 'cars:list' %}">К автомоблям</a>
-                <a href="{% url 'admin:index' %}">Админка</a>
+                <a href="#">Контакты</a>
             </div>
         </div>
         <div>
-{#                <div class="personal-room" routerLink="/profile" [routerLinkActive]='["active"]' (click)="showMenu = false">#}
-{#                    {{user? user.surname + ' ' + user.name : 'Личный кабинет'}}#}
-{#                    <i class="far fa-user"></i>#}
-{#                </div>#}
+            <div class="personal-room">
+                <a href="{% url 'user:profile' %}">
+                    {% if user.is_authenticated %}
+                        {{ user.last_name }} {{ user.first_name }}
+                    {% else %}
+                        Личный кабинет
+                    {% endif %}
+                </a>
+                <i class="far fa-user"></i>
+            </div>
         </div>
     </div>
     <div class="container">

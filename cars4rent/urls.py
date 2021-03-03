@@ -23,6 +23,7 @@ from apps.main import views as main_views
 urlpatterns = [
     path('', main_views.start_app, name='index'),
     path('cars/', include(('apps.cars.urls', 'apps.cars'), namespace='cars')),
+    path('user/', include(('apps.user.urls', 'apps.user'), namespace='user')),
     path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
 ]
