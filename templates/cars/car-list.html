@@ -17,7 +17,7 @@
                             href="{% url 'cars:getById' car.id %}">
                         Карточка автомобиля
                     </a>
-                    <button type="button" class="btn btn-info btn-block">Забронировать</button>
+                    <a class="btn btn-info btn-block" href="{% url 'cars:createOrder' car.id %}">Забронировать</a>
                 </div>
             </div>
         {% endfor %}

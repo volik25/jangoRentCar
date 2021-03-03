@@ -16,3 +16,17 @@ def get_car_by_id(request, car_id):
         raise Http404('Такого автомобиля не существует')
 
     return render(request, 'cars/car.html', {'car': car})
+
+
+def order_form(request, car_id):
+    return render(request, 'cars/order.html', {'car_id': car_id})
+
+
+def create_order(request, car_id):
+    try:
+        car = Car.objects.get(id=car_id)
+    except:
+        raise Http404('Такого автомобиля не существует')
+
+    return render(request)
+
