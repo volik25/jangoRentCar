@@ -1,0 +1,115 @@
+.container-fluid {
+  border: 5px solid #1b699e;
+}
+
+.car {
+  border: 5px solid #1b699e;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px;
+  padding: 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  position: relative;
+}
+.car .image {
+  height: 180px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 10px;
+}
+.car .dismiss {
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  padding: 0px;
+  margin-top: -5px;
+  margin-right: 0px;
+}
+.car .title {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.car .details {
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.car .details i {
+  margin-right: 2px;
+  margin-left: 2px;
+}
+.car .price {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+ //.car{
+ //     border: 5px solid rgb(27,105,158);
+ //     border-radius: 10px;
+ //     box-shadow: 2px 2px 6px;
+ //     padding: 15px;
+ //     margin-right: 10px;
+ //     margin-bottom: 10px;
+ //     display: flex;
+ //     flex-direction: column;
+ //     justify-content: space-between;
+ //     width: 300px;
+ //     position: relative;
+ //     .image{
+ //         height: 180px;
+ //         background-position: center;
+ //         background-repeat: no-repeat;
+ //         background-size: cover;
+ //         display: flex;
+ //         align-items: center;
+ //         justify-content: center;
+ //         width: 100%;
+ //         border-radius: 10px;
+ //     }
+ //     .dismiss{
+ //         position: absolute;
+ //         top: 1px;
+ //         right: 2px;
+ //         padding: 0px;
+ //         margin-top: -5px;
+ //         margin-right: 0px;
+ //     }
+ //     .title{
+ //         padding: 5px;
+ //         display: flex;
+ //         justify-content: space-between;
+ //         align-items: center;
+ //     }
+ //     .details{
+ //         padding: 5px;
+ //         display: flex;
+ //         justify-content: space-around;
+ //         align-items: center;
+ //         i{
+ //             margin-right: 2px;
+ //             margin-left: 2px;
+ //         }
+ //     }
+ //     .price{
+ //         padding: 5px;
+ //         display: flex;
+ //         justify-content: center;
+ //         align-items: center;
+ //     }
+ // }
+ */
