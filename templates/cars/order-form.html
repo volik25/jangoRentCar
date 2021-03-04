@@ -1,0 +1,14 @@
+{% extends 'app.html' %}
+{% load crispy_forms_field %}
+{% block title %}Бронирование {{ car.manufacturer }} {{ car.model }}{% endblock %}
+{% block content %}
+    <form method="post" class="d-flex flex-column">
+        {% csrf_token %}
+        {{ form.date_start }}
+        {{ form.date_finish }}
+        {% if error %}
+            <span class="text-danger">{{ error_text }}</span>
+        {% endif %}
+        <button type="submit" class="btn btn-success">Оставить заявку</button>
+    </form>
+{% endblock %}

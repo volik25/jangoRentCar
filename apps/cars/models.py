@@ -23,15 +23,15 @@ class Car(models.Model):
 
 
 class Order(models.Model):
-    car_id = models.ForeignKey(Car, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    date_start = models.DateTimeField('Дата и время начала аренды')
-    date_finish = models.DateTimeField('Дата и время окончания аренды')
-    createDate = models.DateTimeField('Дата заявки', default=datetime.now())
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, verbose_name='Автомобиль')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
+    date_start = models.DateTimeField(auto_now_add=False, verbose_name='Дата начала аренды')
+    date_finish = models.DateTimeField(auto_now_add=False, verbose_name='Дата окончания аренды')
+    createDate = models.DateTimeField(default=datetime.now(), verbose_name='Дата заявки')
 
     class Meta:
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
 
     def __str__(self):
-        return f"Заказ №{self.id} от {self.createDate}"
+        return f"Заказ №{self.id} от {self.createDate.strftime('%d.%m.%Y %H:%M')}"
