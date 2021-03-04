@@ -21,6 +21,7 @@ def get_car_by_id(request, car_id):
 
 
 def create_order(request, car_id):
+    car = Car.objects.get(id=car_id)
     is_error = False
     error_text = ''
     if request.method == 'POST':
@@ -43,6 +44,7 @@ def create_order(request, car_id):
     order_form = OrderForm()
     data = {
         'form': order_form,
+        'car': car,
         'error': is_error,
         'error_text': error_text
     }
@@ -52,3 +54,13 @@ def create_order(request, car_id):
 def get_order_by_id(request, order_id):
     order = Order.objects.get(id=order_id)
     return render(request, 'cars/order.html', {'order': order})
+
+
+def get_orders(request):
+    if request.user.is_authenticated:
+        user = User.objects.get(id=request.user.id)
+    else:
+        return redirect('user:sign-in')
+    order_list = user.order_set.all()
+    return render(request, 'cars/order-list.html', {'order_list': order_list})
+

@@ -3,10 +3,13 @@
 {% load crispy_forms_tags %}
 {% block title %} Регистрация {% endblock %}
 {% block content %}
-    <h2>Регистрация</h2>
-    <form method="post">
-    {% csrf_token %}
-        {{ form.as_p }}
-    <button type="submit" class="btn btn-success">Зарегистрироваться</button>
-    </form>
+    <div class="d-flex flex-column mb-3">
+        <h2>Регистрация</h2>
+        <form method="post">
+        {% csrf_token %}
+            {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+        <a class="btn btn-primary ml-2" href="{% url 'user:sign-in' %}">Авторизация</a>
+        </form>
+    </div>
 {% endblock content %}

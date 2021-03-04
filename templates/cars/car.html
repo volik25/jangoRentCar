@@ -1,5 +1,26 @@
 {% extends 'app.html' %}
 {% block title %}{{ car.manufacturer }} {{ car.model }}{% endblock %}
 {% block content %}
-    <h2>{{ car.manufacturer }} {{ car.model }}</h2>
+    <div class="d-flex flex-column" style="width: 350px">
+        <h2>{{ car.manufacturer }} {{ car.model }}</h2>
+        <div class="image">
+            <img src="{{ car.photo.url }}" width="350px">
+        </div>
+        <div class="mt-3">
+            <div><strong>Дата выпуска:</strong> {{ car.createYear }}</div>
+        </div>
+        <div class="mt-3">
+            <div><strong>Мощность:</strong> {{ car.power }} л.с.</div>
+        </div>
+        <div class="mt-3">
+            <div><strong>Стоимость (руб. в сутки):</strong> {{ car.price }}</div>
+        </div>
+        <div class="mt-3">
+            <div>
+                <strong>Описание:</strong><br>
+                <div>{{ car.description }}</div>
+            </div>
+        </div>
+        <a class="btn btn-info btn-block mt-3" href="{% url 'cars:createOrder' car.id %}">Забронировать</a>
+    </div>
 {% endblock %}

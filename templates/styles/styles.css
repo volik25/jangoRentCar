@@ -57,13 +57,21 @@
 .header .personal-room i {
   margin-left: 10px;
 }
-.header .personal-room:hover,
-.header .personal-room.active {
+.header .personal-room a {
+  color: whitesmoke;
+}
+.header .personal-room:hover {
   cursor: pointer;
   outline: none;
   text-decoration: underline;
 }
 
 .header .admin-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.header .admin-panel a {
+  color: whitesmoke;
 }

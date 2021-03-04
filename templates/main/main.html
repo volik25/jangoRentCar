@@ -1,4 +1,26 @@
 {% extends 'app.html' %}
+{% load static %}
+{% block styles %} {% static 'car-styles.css' %} {% endblock %}
 {% block content %}
-    <h2>Cars4Rent</h2>
+    <div class="d-flex flex-column align-items-center">
+        <h2>Cars4Rent</h2>
+        <h4>Наши последние заказы:</h4>
+        <div class="d-flex flex-wrap">
+        {% if order_list %}
+            {% for order in order_list %}
+                <div class="car">
+                    <div class="image" style="background-image: url({{ order.car.photo.url }})"></div>
+                    <div>
+                        <div class="title">
+                          <b>{{ order.car.manufacturer }} {{ order.car.model }}</b>
+                          <div class="year">{{order.car.createYear}}</div>
+                        </div>
+                        <div class="price"><b>{{order.car.price}}₽</b><span>&nbsp;в сутки</span></div>
+                        <a class="btn btn-success btn-block" href="{% url 'cars:createOrder' order.id %}">Хочу такую же!</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
 {% endblock %}
